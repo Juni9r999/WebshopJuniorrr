@@ -1,0 +1,7 @@
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\WebsiteJuniorrr.exe
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\appsettings.json
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\WebsiteJuniorrr.dll
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\WebsiteJuniorrr.deps.json
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\WebsiteJuniorrr.runtimeconfig.json
+E:\VSC Projects\Website Juniorrr 2025\WebsiteJuniorrr\WebsiteJuniorrr\obj\Release\net6.0\PubTmp\Out\WebsiteJuniorrr.pdb

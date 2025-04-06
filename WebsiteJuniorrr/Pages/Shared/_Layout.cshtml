@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebsiteJuniorrr</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebsiteJuniorrr.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3 position-relative">
+
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        
+        <div class="d-flex">
+            <a class="navbar-brand small-logo" asp-area="" asp-page="/Index">
+               <img src="/images/logo1.png" alt="Home" class="img-fluid" style="max-height: 50px;" />
+            </a>
+
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Beats">
+                        <img src="/images/BeatsLogoSmall.png" alt="Beats" style="height: 50px;" />
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Merch">
+                        <img src="/images/MerchLogoSmall.png" alt="Merch" style="height: 50px;" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">
+                        <img src="/images/PrivacyLogoSmall.png" alt="Privacy" style="height: 50px;" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="navbar-center">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">
+            <img src="/images/logo1.png" alt="Home" class="big-logo" />
+            <p>OFFICIAL JUNIORS' WEBSITE</p>
+        </a>
+        
+    </div>
+</nav>
+
+
+
+    </header>
+
+
+
+    <div class="container">
+        
+            @RenderBody()
+        
+    </div>
+
+   @*  <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div> *@
+
+
+
+    <footer class="border-top footer text-muted" style="background-color: white;color: black;">
+        <div class="container text-center">
+             
+            
+            <div class="social-media">
+                
+                <a href="https://www.instagram.com/juni9rrr/" target="_blank">
+                    <img src="/images/InstagramLogo.gif" alt="Instagram" class="social-icon" />
+                    <span>@("juni9rrr")</span>
+
+                </a>
+                <a href="@("https://www.youtube.com/@Juni9rrr")" target="_blank">
+                    <img src="/images/YoutubeLogo.gif" alt="YouTube" class="social-icon" />
+                    <span>@("Juni9rrr")</span>
+                </a>
+                <a href="@("https://linktr.ee/juniorrr999?utm_source=linktree_profile_share&ltsid=d2df7fa1-bd4a-4f6f-a281-6b1abd7f2dc7")" target="_blank">
+                    <img src="/images/LinktreeLogo.gif" alt="YouTube" class="social-icon" />
+                    <span>@("Juni9rrr")</span>
+                </a style="center">
+                &copy; 2025 - OFFICIAL JUNIORS' WEBSITE - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

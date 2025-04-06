@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<audio id="intro-audio" autoplay>
+    <source src="/SoundEffect/JuniorTag.mp3" type="audio/mpeg">
+</audio>
+
+<div class="content-container">
+    <div class="youtube-container">
+        <h4 style="text-align: center;">LATEST BEATS !</h4>
+        <iframe width="500" height="300" src="https://www.youtube.com/embed/iwv9n_jnp54" title="YouTube video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br />
+        <br />
+        <h4 style="text-align: center;">WYM - GIBBY Prod. JUNIORRR</h4>
+        <iframe width="500" height="300" src="https://www.youtube.com/embed/JQvk3C8lb7o" title="YouTube video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       @*  <iframe width="500" height="300" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="YouTube video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> *@
+    </div>
+   
+    <div class="maincontenttext-container">
+        <H1 style="text-align: center;"> WELCOME!</H1>
+    </div>
+
+    <div class="spotify-container">
+        <iframe src="https://open.spotify.com/embed/playlist/750SAqUh46TnNUm8IpA3fp?utm_source=generator" width="300" height="730" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+</div>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("intro-audio");
+        if (audio) {
+            audio.play().catch(error => {
+                console.log("Autoplay is geblokkeerd door de browser", error);
+            });
+        }
+    });
+</script>
+

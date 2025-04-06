@@ -1,0 +1,232 @@
+﻿@page
+@model WebsiteJuniorrr.Pages.BeatsModel
+
+<div class="text-center">
+    <img src="/images/BeatsLogoSmall.png" />
+    <p> OFFICIAL BEATS PAGE.</p>
+</div>
+
+<div class="beats-container">
+    @if (Model.Mp3Files.Any())
+    {
+        <div class="beats-grid">
+            @foreach (var file in Model.Mp3Files)
+            {
+                <div class="beat-item">
+                    <img class="beat-image" src="/images/AudioLogo.png" alt="" onclick="playAudio(this)" />
+                    <p class="beat-title">@file</p>
+                    <audio controls>
+                        <source src="/BeatMp3s/@file" type="audio/mpeg">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="rewind-btn" onclick="rewindAudio(this)">
+                            <img src="/images/RewindLogoMini.png" alt="Rewind" />
+                            15 sec
+                        </button>
+                        <button class="forward-btn" onclick="forwardAudio(this)">
+                            15 sec
+                            <img src="/images/ForwardLogoMini.png" alt="Forward" />
+                        </button>
+                    </div>
+                    <div class="button-group-container">
+                        <div class="button-group">
+                            <a class="buy-btn" href="#">BUY</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>WE'RE OUT OF BEATS.</p>
+    }
+</div>
+
+<script>
+    function rewindAudio(button) {
+        const audio = button.closest('.beat-item').querySelector('audio');
+        if (audio) {
+            audio.currentTime = Math.max(0, audio.currentTime - 15);
+        }
+    }
+
+    function forwardAudio(button) {
+        const audio = button.closest('.beat-item').querySelector('audio');
+        if (audio) {
+            audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+        }
+    }
+
+    function playAudio(image) {
+        const audio = image.closest('.beat-item').querySelector('audio');
+        if (audio) {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const audioPlayers = document.querySelectorAll("audio");
+
+        audioPlayers.forEach(audio => {
+            audio.addEventListener("play", function () {
+                audioPlayers.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .beats-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 100%;
+        padding-bottom: 80px;
+    }
+
+    .beats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 90%;
+        max-width: 1200px;
+        justify-content: center;
+    }
+
+    .beat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        min-height: 320px;
+    }
+
+        .beat-item:hover {
+            transform: scale(1.05);
+        }
+
+    .beat-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .beat-title {
+        font-weight: bold;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    audio {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .audio-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .rewind-btn, .forward-btn {
+        background-color: #F1F3F4;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+        transition: 0.3s;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .rewind-btn img, .forward-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .rewind-btn:hover, .forward-btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+    .button-group-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .download-btn, .buy-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .download-btn {
+        background-color: #007bff;
+    }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+
+    .buy-btn {
+        background-color: #8000E1;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.3s ease-in-out;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .buy-btn:hover {
+           /*  background-color: #D89BDD; */
+            background-image: url('/images/FlamesAnimation.gif');
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            height:50%;
+            color: white;
+        }
+
+</style>
